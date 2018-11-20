@@ -1,0 +1,21 @@
+package com.groupe.jeu;
+
+import java.util.LinkedList;
+
+public class Main {
+
+	LinkedList<Props> propsMain;
+	
+	public Main() {
+		propsMain = new LinkedList<Props>();
+	}
+
+	public LinkedList<Props> getPropsMain() {
+		return propsMain;
+	}
+
+	public void setPropsMain(LinkedList<Props> propsMain) {
+		this.propsMain = propsMain;
+	}
+	
+}
