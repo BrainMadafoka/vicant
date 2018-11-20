@@ -1,0 +1,69 @@
+package com.groupe.jeu;
+
+import java.util.LinkedList;
+import java.util.Scanner;
+
+import javax.swing.text.StyledEditorKit.ForegroundAction;
+
+public abstract class Joueur {
+
+	private String pseudo;
+	private Main main;
+	Scanner sc = new Scanner(System.in);
+	
+	public Joueur(String pseudo,Main main) {
+		this.pseudo = pseudo;
+		this.main = main;
+	}
+	
+	public Trick choisirTrick(Trick trick) {
+		System.out.println("Trick Pile ou Trick Jeu");
+		String choix = sc.nextLine();
+		if(choix == "Trick Pile") {
+			return trick;
+		}
+		else if(choix == "Trick Jeu") {
+			return trick;
+		}else {
+			return trick;
+		}
+	}
+	
+	public Joueur choisirJoueurEchange() {
+		System.out.println("Avec quel joueur souhaite tu échanger");
+		String choixJoueur = sc.nextLine();
+		Joueur joueurChoisi = null;  // TO DOOO
+		return joueurChoisi;
+	}
+	
+	public Props choisirPropsJoueur() {
+		System.out.println("Quel cartes veut tu echanger");
+		System.out.println(this.getMain().getPropsMain() + "0 pour la premier et 1 pour la deuxieme");
+		int choixProps = sc.nextInt();
+		return this.getMain().getPropsMain().get(choixProps);
+	}
+	public Props choisirPropsJoueurAdverse() {
+		
+		Joueur joueurChoisi = this.choisirJoueurEchange();
+		System.out.println("quel props veut tu lui prendre");
+		System.out.println(joueurChoisi.getMain() + "0 pour la premier et 1 pour la deuxieme");
+		int choixProps = sc.nextInt();
+		return joueurChoisi.getMain().getPropsMain().get(choixProps);
+	}
+	
+	public void echangerCarte() {
+		choisirPropsJoueur();
+		choisirPropsJoueurAdverse();
+		this.getMain().setPropsMain(propsMain); // to do
+	}
+
+	public Main getMain() {
+		return main;
+	}
+
+	public String getPseudo() {
+		return pseudo;
+	}
+	
+	
+}
