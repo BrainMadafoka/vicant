@@ -1,0 +1,27 @@
+package com.groupe.jeu;
+
+import java.util.List;
+
+public class Tricks extends Carte {
+	
+	private int valeurPoint;
+	protected int penalite;
+	private List<Props.Prop> propRequis1;
+	private List<Props.Prop> propRequis2;
+	
+	public Tricks(String nom,int valeurPoint , int penalite ,List<Props.Prop> propRequis1, List<Props.Prop> propRequis2) {
+		super(nom);
+		this.valeurPoint = valeurPoint;
+		this.penalite = penalite;
+		this.nom = nom;
+		this.propRequis1 = propRequis1;
+		this.propRequis2 = propRequis2;
+		
+	}
+	
+	public String toString() {
+		return "la carte est " + this.nom + " il faut " + this.propRequis1 + " et " + this.propRequis2 + " et fournir un bonus de " + this.valeurPoint + " et un malus de " + this.penalite;
+		
+	}
+	
+}
