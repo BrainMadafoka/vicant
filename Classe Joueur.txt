@@ -1,22 +1,19 @@
 package com.groupe.jeu;
 
-import java.util.LinkedList;
 import java.util.Scanner;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
-public abstract class Joueur {
+public class Joueur {
 
 	private String pseudo;
-	private Main main;
+	private Main mainJoueur;
 	Scanner sc = new Scanner(System.in);
 	
-	public Joueur(String pseudo,Main main) {
+	public Joueur(String pseudo) {
 		this.pseudo = pseudo;
-		this.main = main;
+		mainJoueur = new Main();
 	}
 	
-	public Trick choisirTrick(Trick trick) {
+	public Tricks choisirTrick(Tricks trick) {
 		System.out.println("Trick Pile ou Trick Jeu");
 		String choix = sc.nextLine();
 		if(choix == "Trick Pile") {
@@ -30,7 +27,7 @@ public abstract class Joueur {
 	}
 	
 	public Joueur choisirJoueurEchange() {
-		System.out.println("Avec quel joueur souhaite tu échanger");
+		System.out.println("Avec quel joueur souhaites tu Ã©changer");
 		String choixJoueur = sc.nextLine();
 		Joueur joueurChoisi = null;  // TO DOOO
 		return joueurChoisi;
@@ -38,9 +35,9 @@ public abstract class Joueur {
 	
 	public Props choisirPropsJoueur() {
 		System.out.println("Quel cartes veut tu echanger");
-		System.out.println(this.getMain().getPropsMain() + "0 pour la premier et 1 pour la deuxieme");
+		System.out.println(this.getMain().getMain() + "0 pour la premier et 1 pour la deuxieme");
 		int choixProps = sc.nextInt();
-		return this.getMain().getPropsMain().get(choixProps);
+		return this.getMain().getMain().get(choixProps);
 	}
 	public Props choisirPropsJoueurAdverse() {
 		
@@ -48,17 +45,23 @@ public abstract class Joueur {
 		System.out.println("quel props veut tu lui prendre");
 		System.out.println(joueurChoisi.getMain() + "0 pour la premier et 1 pour la deuxieme");
 		int choixProps = sc.nextInt();
-		return joueurChoisi.getMain().getPropsMain().get(choixProps);
+		return joueurChoisi.getMain().getMain().get(choixProps);
 	}
 	
 	public void echangerCarte() {
-		choisirPropsJoueur();
-		choisirPropsJoueurAdverse();
-		this.getMain().setPropsMain(propsMain); // to do
+		Props echange1 = choisirPropsJoueur();
+		Props echange2 = choisirPropsJoueurAdverse();
+		// this.getMain().setPropsMain(propsMain); // to do
 	}
+	
+	public void prendreCarte(Props prop) {
+		mainJoueur.getMain().add(prop);
+	}
+	
+
 
 	public Main getMain() {
-		return main;
+		return mainJoueur;
 	}
 
 	public String getPseudo() {
