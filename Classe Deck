@@ -1,0 +1,28 @@
+package com.groupe.jeu;
+
+import java.util.LinkedList;
+
+public class Deck {
+	
+	private LinkedList<Tricks> TasDeTrick;
+	
+	public Deck() {
+		
+		TasDeTrick = new LinkedList<Tricks>();
+		for (Trick t : Trick.values()) {
+			Tricks trick = new Tricks(t.name(),t.getValeurPoint(),t.getPenalite(),t.getPropRequis1(),t.getPropRequis2());
+			TasDeTrick.add(trick);
+		}
+		//deck.melanger();
+		
+	}
+	
+	public static void main(String[] args) {
+		new Deck();
+		}
+
+	public void prendreTrickSommet() {
+		//pile.add()
+	}
+	
+}
