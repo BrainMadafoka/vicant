@@ -1,0 +1,45 @@
+package com.groupe.jeu;
+import java.util.List;
+import java.util.Arrays;
+
+public enum Trick {
+	THE_HUNGRY_RABBIT(1,0,Arrays.asList(Props.Prop.THE_RABBIT, Props.Prop.THE_OTHER_RABBIT) , Arrays.asList(Props.Prop.CARROTS, Props.Prop.THE_LETTUCE)),
+	THE_BUNCH_OF_CARROTS(2,0,Arrays.asList(Props.Prop.CARROTS) , Arrays.asList(Props.Prop.CARROTS)),
+	THE_VEGETABLE_PATCH(3,0,Arrays.asList(Props.Prop.THE_RABBIT), Arrays.asList(Props.Prop.THE_LETTUCE)),
+	THE_RABBIT_THAT_DIDNT_LIKE_CARROTS(4,0,Arrays.asList(Props.Prop.THE_RABBIT, Props.Prop.THE_OTHER_RABBIT) , Arrays.asList(Props.Prop.THE_LETTUCE)),
+	THE_PAIR_OF_RABBITS(5,0,Arrays.asList(Props.Prop.THE_RABBIT) , Arrays.asList(Props.Prop.THE_OTHER_RABBIT)),
+	THE_VEGETABLE_HAT_TRICK(2,0,Arrays.asList(Props.Prop.THE_HAT) , Arrays.asList(Props.Prop.CARROTS, Props.Prop.THE_LETTUCE)),
+	THE_CARROT_HAT_TRICK(3,0,Arrays.asList(Props.Prop.THE_HAT) , Arrays.asList(Props.Prop.CARROTS)),
+	THE_SLIGHTLY_EASIER_HAT_TRICK(4,0,Arrays.asList(Props.Prop.THE_HAT) , Arrays.asList(Props.Prop.THE_RABBIT, Props.Prop.THE_OTHER_RABBIT)),
+	THE_HAT_TRICK(5,0,Arrays.asList(Props.Prop.THE_HAT) , Arrays.asList(Props.Prop.THE_RABBIT)),
+	THE_OTHER_HAT_TRICK(6,-3,Arrays.asList(Props.Prop.THE_HAT) , Arrays.asList(Props.Prop.THE_OTHER_RABBIT));
+	
+	private int valeurPoint;
+	private int penalite;
+	private List<Props.Prop> propRequis1;
+	private List<Props.Prop> propRequis2;
+	
+	Trick(int valeurPoint, int penalite, List<Props.Prop> propRequis1 , List<Props.Prop> propRequis2){
+		this.valeurPoint = valeurPoint;
+		this.penalite = penalite;
+		this.propRequis1 = propRequis1;
+		this.propRequis2 = propRequis2;
+	}
+
+	public int getValeurPoint() {
+		return valeurPoint;
+	}
+
+	public int getPenalite() {
+		return penalite;
+	}
+
+	public List<Props.Prop> getPropRequis1() {
+		return propRequis1;
+	}
+
+	public List<Props.Prop> getPropRequis2() {
+		return propRequis2;
+	}
+
+}
