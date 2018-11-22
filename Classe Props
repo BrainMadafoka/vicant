@@ -1,0 +1,23 @@
+package com.groupe.jeu;
+
+public class Props extends Carte {
+	
+	public enum Prop{
+		THE_RABBIT,
+		THE_HAT,
+		CARROTS,
+		THE_OTHER_RABBIT,
+		THE_LETTUCE;
+	}
+	
+	public Props(String string) {
+		super(string);
+		
+	}
+
+	public Prop getProp() {
+		return prop;
+	}
+	
+
+}
