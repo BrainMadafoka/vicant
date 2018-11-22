@@ -1,0 +1,72 @@
+package com.groupe.jeu;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import com.groupe.jeu.Props.Prop;
+
+public class Partie {
+	
+	private Props propMilieu;
+	private ArrayList<Joueur> listJoueurs;
+	private LinkedList<Props> listProps;
+	private Deck deck;
+	private Pile pile;
+	private boolean partieEnCours;
+
+	public Partie(Props propMilieu) {
+		this.propMilieu = propMilieu;
+		listJoueurs = new ArrayList<Joueur>();
+		listProps = new LinkedList<Props>();
+		for (Prop prop : Prop.values()) {
+			Props propajout = new Props(prop.name());
+			listProps.add(propajout);
+		}
+		deck = new Deck();
+		//deck.melanger();
+		this.partieEnCours = false;
+		
+	}
+	
+	public void ajouterJoueur(Joueur joueur) {
+		if(partieEnCours == false) {
+			listJoueurs.add(joueur);
+		}
+		
+	}
+	
+	public void retirerJoueur(Joueur joueur) {
+		if(partieEnCours == false) {
+			listJoueurs.remove(joueur);
+		}
+	}
+	
+	public Props tirerCarteDuDessus() {
+		return listProps.pop();
+		
+	}
+	
+	public void distribuerProps() {
+		setPartieEnCours(true);
+		while (listProps.isEmpty() == false) {
+			Iterator<Joueur> it = listJoueurs.iterator();
+			while (it.hasNext()) {
+				Joueur joueur = (Joueur) it.next();
+				joueur.prendreCarte(tirerCarteDuDessus());
+			}
+			
+		}
+		
+		
+	}
+	
+	public void jouer() {
+		
+	}
+
+	public void setPartieEnCours(boolean partieEnCours) {
+		this.partieEnCours = partieEnCours;
+	}
+	
+}
