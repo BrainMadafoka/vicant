@@ -1,0 +1,17 @@
+package com.groupe.jeu;
+
+public abstract class Carte {
+
+	protected Props.Prop prop;
+	protected String nom;
+	
+	public Carte(Props.Prop prop) {
+		
+		this.prop = prop;
+	}
+	
+	public Carte(String nom) {
+		this.nom = nom;
+	}
+	
+}
