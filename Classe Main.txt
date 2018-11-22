@@ -4,18 +4,18 @@ import java.util.LinkedList;
 
 public class Main {
 
-	LinkedList<Props> propsMain;
+	private LinkedList<Props> main;
 	
 	public Main() {
-		propsMain = new LinkedList<Props>();
+		main = new LinkedList<Props>();
 	}
 
-	public LinkedList<Props> getPropsMain() {
-		return propsMain;
+	public LinkedList<Props> getMain() {
+		return main;
 	}
 
-	public void setPropsMain(LinkedList<Props> propsMain) {
-		this.propsMain = propsMain;
+	public void setPropsMain(LinkedList<Props> main) {
+		this.main = main;
 	}
 	
 }
